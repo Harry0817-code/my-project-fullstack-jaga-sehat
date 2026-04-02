@@ -27,7 +27,7 @@ function LoginPage(props) {
     const { error, data } = await login(email, password);
 
     if (error) {
-      console.log('tidak berhasil');
+      alert('Mohon daftar terlebih dahulu sebelum masuk ke prototype jaga sehat :)');
       setLoading(false);
       return;
     }
