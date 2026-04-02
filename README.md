@@ -60,7 +60,58 @@ Dashboard Admin: Kontrol penuh atas manajemen data dokter
 
 --------------------------------------------------------------------------------
 🛠️ Instalasi & Pengembangan
-(Bagian ini bisa Anda isi dengan langkah manual npm install dan npm run dev sesuai struktur folder proyek Anda)
+Ikuti langkah-langkah di bawah ini untuk menjalankan proyek Jaga Sehat di lingkungan lokal Anda.
+
+Prasyarat
+Node.js (Versi terbaru disarankan)
+PostgreSQL (Sudah terinstal dan berjalan)
+Gemini API Key (Untuk fitur Analyze AI)
+1. Kloning Repositori
+git clone https://github.com/username/jaga-sehat.git
+cd jaga-sehat
+2. Pengaturan Server (Back-end)
+Server dibangun menggunakan Hapi.js dan mengelola seluruh logika bisnis serta koneksi database
+.
+# Masuk ke direktori server
+cd server
+
+# Instal dependensi
+npm install
+
+# Konfigurasi Environment Variables
+# Buat file .env dan masukkan kredensial Database, JWT_SECRET, dan GEMINI_API_KEY
+Menjalankan Migrasi Database: Proyek ini menggunakan node-pg-migrate untuk mengelola skema database PostgreSQL.
+# Menjalankan migrasi ke atas (membuat tabel)
+npm run migrate:up
+Menjalankan Server:
+# Mode Pengembangan (dengan nodemon)
+npm run dev
+
+# Mode Produksi
+npm run start
+3. Pengaturan Client (Front-end)
+Client menggunakan Vite dan React JS untuk antarmuka yang cepat dan responsif
+.
+# Masuk ke direktori client
+cd front-end
+
+# Instal dependensi
+npm install
+
+# Menjalankan aplikasi dalam mode pengembangan
+npm run dev
+Aplikasi akan berjalan di http://localhost:5173 (atau port default Vite lainnya).
+
+--------------------------------------------------------------------------------
+🏗️ Struktur Skrip Utama
+Server (Back-end)
+npm run dev: Menjalankan server menggunakan nodemon untuk auto-reload saat ada perubahan kode.
+npm run migrate:up: Membuat tabel dan skema yang diperlukan di database PostgreSQL.
+npm run migrate:down: Membatalkan migrasi database terakhir.
+Client (Front-end)
+npm run dev: Memulai server pengembangan Vite.
+npm run build: Membuat build produksi aplikasi React di folder dist.
+npm run lint: Menjalankan ESLint untuk menjaga kualitas dan konsistensi kode.
 
 --------------------------------------------------------------------------------
 Dibuat dengan ❤️ oleh [Harry Nugroho Susetyo](www.linkedin.com/in/harryns) Menghubungkan Teknologi untuk Hidup yang Lebih Sehat.
