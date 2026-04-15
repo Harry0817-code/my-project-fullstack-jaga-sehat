@@ -116,20 +116,6 @@ function MessagePage(props) {
       const { error } = await updateMarkUnreadMessagesAsRead(getConversationId);
 
       if (!error) {
-        // const updateAllMessage = allMessages.map(record => {
-        //   const isUnread = getSelectedUnreadMessage.some(msgUnRead =>
-        //     record.conversation_id === msgUnRead.conversation_id &&
-        //     record.account_id === msgUnRead.account_id &&
-        //     record.is_read === false
-        //   );
-
-        //   if (isUnread) {
-        //     return { ...record, is_read: true };
-        //   }
-
-        //   return record;
-        // });
-
         setAllMessages(prev =>
           prev.map(record => {
             const isUnread = getSelectedUnreadMessage.some(msgUnRead =>
